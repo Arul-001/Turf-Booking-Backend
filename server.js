@@ -11,7 +11,11 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://arul-001.github.io', // your GitHub Pages URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+  }));
 app.use("/api/turfs", turfRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/bookings", bookingRoutes); 
